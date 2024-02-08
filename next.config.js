@@ -3,4 +3,15 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.tsx',
 })
 
-module.exports = withNextra()
+module.exports = {
+  ...withNextra(),
+  async headers() {
+    return [
+      {
+        source: '/run',
+        headers: [{ key: 'Cross-Origin-Embedder-Policy', value: 'require-corp', }, { key: 'Cross-Origin-Opener-Policy', value: 'same-origin', }]
+      },
+    ]
+  }
+}
+
