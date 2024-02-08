@@ -1,0 +1,77 @@
+```ts {3} copy
+import { WavePrint } from 'wave-shell'
+
+const print = WavePrint('app')
+```
+
+### Parameters
+
+- `context` (optional): A string that provides context for the logs. It is prepended to each log message.
+
+### Methods
+
+#### success
+
+
+Prints a success message to the console with a green color.
+```ts
+print.success(message)
+```
+
+Paramaters: 
+- `message: string`
+
+#### error
+
+Prints an error message to the console with a red color.
+
+```tsx
+print.error(message)
+```
+
+Paramaters: 
+- `message: string`
+
+
+
+#### info
+
+Prints an informational message to the console with a default color.
+
+```tsx
+print.info(message)
+```
+
+Paramaters: 
+- `message: string`
+
+#### table
+
+Prints a table to the console.
+
+```tsx
+print.table()
+```
+
+Paramaters:
+- `data: string[][]`: A 2D array of strings that represents the table data.
+- `options: CliTable3.TableConstructorOptions`: An object that contains the table options.
+
+#### spaceLine
+
+Prints an empty line to the console.
+
+```tsx
+print.spaceLine()
+```
+
+#### clearLastLines
+
+Clears a specified number of lines from the console.
+
+```tsx
+print.clearLastLines(3)
+```
+
+Paramaters
+- `lines: number`: The number of lines to clear.
