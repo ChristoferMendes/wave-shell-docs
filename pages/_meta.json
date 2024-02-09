@@ -1,9 +1,5 @@
 {
   "index": "Introduction",
   "basic-usage": "Basic Usage",
-  "wave-api": "Wave API",
-  "about": {
-    "title": "About",
-    "type": "page"
-  }
+  "wave-api": "Wave API"
 }

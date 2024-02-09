@@ -1,0 +1,56 @@
+# Prompt
+
+import { PRINT_PARAMETERS } from '../../constants/print/parameters'
+
+export function PromptParametersCount() {
+  return <span>{PRINT_PARAMETERS.length}</span>
+}
+
+export function PromptParameters() {
+  return (
+    <span>
+      {PRINT_PARAMETERS.join(', ')}
+    </span>
+  )
+}
+
+
+The Prompt function is a factory function that returns an object with <PromptParametersCount /> methods: <PromptParameters />. These methods are used to interact with the user via the command line.
+
+## Methods
+
+### ask
+The ask method prompts the user with a question and expects a string response.
+
+```js copy
+const value = await prompt.ask('What is your name?');
+```
+
+Parameters:
+
+- `question: string — The question to ask the user.`
+
+--- 
+### confirm
+The confirm method prompts the user with a question and expects a boolean response.
+
+```js copy
+const value = await prompt.confirm('Are you sure?');
+```
+
+Parameters:
+
+- `question: string — The question to ask the user.`
+---
+### select
+The select method prompts the user with a question and a list of options. The user is expected to select one of the options.
+
+```js copy
+const value = await prompt.select('What is your favorite color?', ['Red', 'Green', 'Blue']);
+```
+
+Parameters:
+
+- `question: string — The question to ask the user.`
+- `options: string[] — The options for the user to select from.`
+---

@@ -1,17 +1,20 @@
+# Print
+
+The `Print` module provides a set of methods to print messages to the console with different colors and styles.
+
 ```ts {3} copy
 import { WavePrint } from 'wave-shell'
 
 const print = WavePrint('app')
 ```
 
-### Parameters
+## Parameters
 
 - `context` (optional): A string that provides context for the logs. It is prepended to each log message.
 
-### Methods
+## Methods
 
---- 
-#### success
+### success
 
 
 Prints a success message to the console with a green color.
@@ -24,7 +27,7 @@ Paramaters:
 
 ---
 
-#### error
+### error
 
 Prints an error message to the console with a red color.
 
@@ -37,7 +40,7 @@ Paramaters:
 
 ---
 
-#### info
+### info
 
 Prints an informational message to the console with a default color.
 
@@ -50,7 +53,7 @@ Paramaters:
 
 ---
 
-#### table
+### table
 
 Prints a table to the console.
 
@@ -64,7 +67,7 @@ Paramaters:
 
 ---
 
-#### spaceLine
+### spaceLine
 
 Prints an empty line to the console.
 
@@ -74,7 +77,7 @@ print.spaceLine()
 
 ---
 
-#### clearLastLines
+### clearLastLines
 
 Clears a specified number of lines from the console.
 
