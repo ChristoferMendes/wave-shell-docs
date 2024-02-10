@@ -1,0 +1,70 @@
+# Using with Surfstar
+
+**[Surfstar](https://github.com/ChristoferMendes/surfstar)** is a template language that allows you to write any type of text and then use the `{{ }}` syntax to insert variables and expressions.
+
+You can use `surfstar` like this:
+
+import { SurfstarUsageFileTree } from '../../components/surfstar-usage-file-tree';
+
+<SurfstarUsageFileTree />
+
+
+```handlebars copy filename="course.surf"
+<h1>Hello dear {{ person.name }}!</h1>
+
+<p>
+  Welcome to the {{ course.name }} course
+</p>
+
+<p>
+  The course will start on {{ course.startDate }} at {{ course.location }}
+</p>
+```
+
+```javascript copy filename="src/commands/send-email.ts" {21}
+import { join } from 'path';
+import { compileTemplate } from 'surfstar';
+import { WaveCommand } from 'wave-shell';
+
+export default {
+  run: async (options) => {
+    const person = {
+      name: 'John Doe',
+    };
+
+    const course = {
+      name: 'Surfstar 101',
+      startDate: '2021-10-01',
+      location: 'Surfstar University',
+    };
+
+    const templatesFolder = join(__dirname, '..', 'templates');
+    const templatePath = join(templatesFolder, 'course.surf');
+
+    const result = await compileTemplate(templatePath, { person, course });
+
+    console.log(result);
+  }
+} as WaveCommand;
+```
+
+
+#### Run the command
+```shell copy
+wave send-email
+```
+
+#### Output 
+```html copy
+<h1>Hello dear John Doe!</h1>
+
+<p>
+  Welcome to the Surfstar 101 course
+</p>
+
+<p>
+  The course will start on 2021-10-01 at Surfstar University
+</p>
+```
+
+

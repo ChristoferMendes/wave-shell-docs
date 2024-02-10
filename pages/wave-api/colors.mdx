@@ -1,0 +1,36 @@
+## WaveColors
+
+The `WaveColors` constant provides a set of functions to apply colors and styles in terminal outputs.
+
+### Colors
+
+- `red`: Applies red color.
+- `green`: Applies green color.
+- `yellow`: Applies yellow color.
+- `blue`: Applies blue color.
+- `magenta`: Applies magenta color.
+- `cyan`: Applies cyan color.
+- `white`: Applies white color.
+
+### Styles
+
+- `bold`: Applies bold style.
+
+### Background Colors
+
+- `bgRed`: Applies red background color.
+- `bgGreen`: Applies green background color.
+- `bgYellow`: Applies yellow background color.
+- `bgBlue`: Applies blue background color.
+- `bgMagenta`: Applies magenta background color.
+- `bgCyan`: Applies cyan background color.
+- `bgWhite`: Applies white background color.
+
+### Usage Example
+
+```jsx
+import { waveColors } from 'wave-shell';
+
+console.log(waveColors.red('This is a red text'));
+console.log(waveColors.bgBlue(waveColors.white('White text on blue background')));
+```

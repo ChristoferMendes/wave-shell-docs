@@ -1,56 +1,31 @@
-# Prompt
+## Prompt
 
-import { PRINT_PARAMETERS } from '../../constants/print/parameters'
-
-export function PromptParametersCount() {
-  return <span>{PRINT_PARAMETERS.length}</span>
-}
-
-export function PromptParameters() {
-  return (
-    <span>
-      {PRINT_PARAMETERS.join(', ')}
-    </span>
-  )
-}
-
-
-The Prompt function is a factory function that returns an object with <PromptParametersCount /> methods: <PromptParameters />. These methods are used to interact with the user via the command line.
+This module provides a set of functions to prompt the user for input in a CLI environment.
 
 ## Methods
 
 ### ask
-The ask method prompts the user with a question and expects a string response.
 
-```js copy
-const value = await prompt.ask('What is your name?');
+This method takes a single string argument and returns a promise that resolves to the user's input.
+
+```javascript copy
+const result = await prompt.ask('What is your name?');
 ```
 
-Parameters:
-
-- `question: string — The question to ask the user.`
-
---- 
+---
 ### confirm
-The confirm method prompts the user with a question and expects a boolean response.
 
-```js copy
-const value = await prompt.confirm('Are you sure?');
+This method takes a single string argument and returns a promise that resolves to a boolean value.
+
+```javascript copy
+const result = await prompt.confirm('Are you sure?');
 ```
-
-Parameters:
-
-- `question: string — The question to ask the user.`
 ---
 ### select
-The select method prompts the user with a question and a list of options. The user is expected to select one of the options.
 
-```js copy
-const value = await prompt.select('What is your favorite color?', ['Red', 'Green', 'Blue']);
+This method takes a single string argument and returns a promise that resolves to the user's selection.
+
+```javascript copy
+const result = await prompt.select('What is your favorite color?', ['red', 'green', 'blue']);
 ```
 
-Parameters:
-
-- `question: string — The question to ask the user.`
-- `options: string[] — The options for the user to select from.`
----

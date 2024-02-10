@@ -1,89 +1,100 @@
-# Print
+# WavePrint Function
 
-The `Print` module provides a set of methods to print messages to the console with different colors and styles.
+The `WavePrint` function is a utility for printing formatted messages to the console.
+You can import it from `wave-shell` or grab it from the `running options`
 
-```ts {3} copy
+import { Callout } from 'nextra/components'
+ 
+<Callout>
+  If you are using prompt from the running options, the context will be automatically set to the name of your cli. You can customize it inside `/bin/cli-name`
+</Callout>
+
+### Usage from running options
+
+```typescript copy
+import { WaveCommand } from 'wave-shell'
+
+export default {
+  run: async (options) => {
+    const { print } = options;
+    print.success('Hello World'); //output: [Wave] Hello World
+
+  }
+} as WaveCommand
+
+```
+
+### Usage from wave-shell
+
+```typescript copy
 import { WavePrint } from 'wave-shell'
 
-const print = WavePrint('app')
+const print = WavePrint('MyCli');
+
+print.success('Hello World'); //output: [MyCli] Hello World
 ```
 
 ## Parameters
 
-- `context` (optional): A string that provides context for the logs. It is prepended to each log message.
+* Context: the context of the message. It will be used to format the message like this: `[Context] Message`
 
 ## Methods
 
 ### success
 
+Prints a success message to the console
 
-Prints a success message to the console with a green color.
-```ts
-print.success(message)
+```typescript copy
+print.success('Message');
 ```
-
-Paramaters: 
-- `message: string`
-
 ---
 
 ### error
 
-Prints an error message to the console with a red color.
+Prints an error message to the console
 
-```tsx
-print.error(message)
+```typescript copy
+print.error('Message');
 ```
-
-Paramaters: 
-- `message: string`
 
 ---
 
-### info
+### info 
 
-Prints an informational message to the console with a default color.
+Prints an info message to the console
 
-```tsx
-print.info(message)
+```typescript copy
+print.info('Message');
 ```
-
-Paramaters: 
-- `message: string`
 
 ---
 
-### table
+### table 
 
-Prints a table to the console.
+Prints a table to the console
 
-```tsx
-print.table()
+```typescript copy
+print.table(['John Doe', 32], {
+  header: ['Name', 'Age'],
+})
 ```
-
-Paramaters:
-- `data: string[][]`: A 2D array of strings that represents the table data.
-- `options: CliTable3.TableConstructorOptions`: An object that contains the table options.
 
 ---
 
 ### spaceLine
 
-Prints an empty line to the console.
+Prints a space line to the console
 
-```tsx
-print.spaceLine()
+```typescript copy
+print.spaceLine();
 ```
 
 ---
 
 ### clearLastLines
 
-Clears a specified number of lines from the console.
+Clears the last lines from the console
 
-```tsx
-print.clearLastLines(3)
+```typescript copy
+print.clearLastLines(2);
 ```
-
-Paramaters
-- `lines: number`: The number of lines to clear.
