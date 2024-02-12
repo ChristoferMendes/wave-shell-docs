@@ -1,3 +1,51 @@
 # Advanced Usage
 
-Work in progress
+import fs from 'fs'
+import Link from 'next/link'
+import { useData } from 'nextra/data'
+
+export const getStaticProps = () => {
+
+  function listPagesInsidePagesDir () {
+    return fs.readdirSync('pages/advanced-usage')
+  }
+
+  function removeFileExtension (fileName) {
+    return fileName.replace('.mdx', '')
+  }
+
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+
+  return {
+    props: {
+      ssg: {
+        pages: listPagesInsidePagesDir().map(removeFileExtension).map(capitalize)
+      }
+    }
+  }
+}
+
+
+export function ListOfPages() {
+   const { pages } = useData()
+   const cssForLink = {
+      color: '#0070f3',
+      textDecoration: 'none',
+   }
+
+  return (
+    <ul>
+      {pages.map((page, index) => (
+        <li key={index}>
+          <Link href={`/wave-api/${page}`} style={cssForLink}>{page}</Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<ListOfPages />
+
+### Work in progress
