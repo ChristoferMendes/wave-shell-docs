@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/mendes/wave-shell-docs.git"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "Christofer Mendes",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mendes/wave-shell-docs/issues"
