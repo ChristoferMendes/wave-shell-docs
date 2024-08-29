@@ -7,7 +7,7 @@ export function GettingStartedFileTree() {
         <FileTree.File name="wave.ts" />
       </FileTree.Folder>
       <FileTree.Folder name="src" defaultOpen>
-        <FileTree.Folder name="components">
+        <FileTree.Folder name="commands">
           <FileTree.File name="hello.ts" />
         </FileTree.Folder>
         <FileTree.File name="package.json" />
